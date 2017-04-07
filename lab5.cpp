@@ -6,15 +6,16 @@ int tabs = 0;
 unsigned int number = 0;
 unsigned int k = 0;
 
+template <class Type>
 class BinarySearchTree
 {
-public:
-	unsigned int data; 
-	unsigned int data_left; 
+private:
+	Type data;
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
- 
-void Add(unsigned int new_data, BinarySearchTree *&root)
+	
+public:
+void Add(Type new_data, BinarySearchTree *&root)
 {
 	if (!root)
 	{
@@ -74,8 +75,8 @@ void FreeTree(BinarySearchTree *root)
 };
 int main(void)
 {
-	BinarySearchTree *root = 0;
-	BinarySearchTree *ptr;
+	BinarySearchTree<unsigned int> *root = 0;
+	BinarySearchTree<unsigned int> *ptr;
 
 	unsigned int* node;
 	unsigned int size = 0;
@@ -103,7 +104,7 @@ int main(void)
 
 	ptr->FreeTree(root);
  	delete [] node;
-	cout << endl << endl << "Press any button to exit the program" << endl;
+	cout << endl << endl << "Press any button to exit the program " << endl;
 	_getch();
 	return 0;
 }
