@@ -11,7 +11,6 @@ class BinarySearchTree
 {
 private:
 	Type data;
-	unsigned int data; 
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
 	
