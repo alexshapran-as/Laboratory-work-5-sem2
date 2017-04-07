@@ -10,7 +10,6 @@ class BinarySearchTree
 {
 public:
 	unsigned int data; 
-	unsigned int data_left; 
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
  
