@@ -89,7 +89,7 @@ int main(void)
 	unsigned int size = 0;
 	auto temp = 0;
 
-	cout << " Print the number of nodes: ";
+	cout << "Print the number of nodes: ";
 	cin >> temp;
 	try
 	{
