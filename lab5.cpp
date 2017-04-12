@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <conio.h>
 using namespace std;
  
@@ -12,8 +13,10 @@ class BinarySearchTree
 {
 private:
 	Type data;
+	Type max;
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
+	BinarySearchTree *parent; 
 	
 public:
 void Add(Type new_data, BinarySearchTree *&root)
@@ -22,12 +25,13 @@ void Add(Type new_data, BinarySearchTree *&root)
 	{
 		root = new BinarySearchTree;
 		root->data = new_data;
+		root->parent = root;
 		root->left = 0;
 		root->right = 0;
 		return;
 	}
-	else if ( root->data > new_data ) Add(new_data, root->left);
-	else if ( root->data < new_data ) Add(new_data, root->right); 
+	else if (root->data > new_data) Add(new_data, root->left);
+	else if (root->data < new_data) Add(new_data, root->right); 
 	else return;
 }
 
@@ -35,7 +39,7 @@ void Search(BinarySearchTree *root)
 {
 	if (!root) return;
 	
-	if ( k == 0 ) 
+	if (k == 0) 
 	{ 
 		cout << endl << "Type the number you want to find: "; 
 		cin >> number;
@@ -50,7 +54,6 @@ void Search(BinarySearchTree *root)
 	
 	Search(root->left);
 	Search(root->right);
-
 }
 
 void print(BinarySearchTree *root)
@@ -68,13 +71,80 @@ void print(BinarySearchTree *root)
 
 	return;
 }
- 
-void FreeTree(BinarySearchTree *root)
+
+void Deletion(BinarySearchTree *root)
 {
 	if (!root) return;
-	FreeTree(root->left);
-	FreeTree(root->right);
-	delete root;
+	
+	cout << endl << endl << "Type the node you want to delete: "; 
+	cin >> number;
+
+	if (number == root->data) 
+		{ 
+			cout << endl << "[-] Error: You are trying to remove the root of the tree!" << endl;
+			return;
+		}
+
+	removeNode(root, number, parent);
+	
+}
+
+BinarySearchTree* findMaxNode(BinarySearchTree *root) 
+{
+    if (root == NULL) exit(4);
+    if (root->right) return findMaxNode(root->right);
+    return root;
+}
+
+void removeNode(BinarySearchTree *root, int number, BinarySearchTree *parent) {
+    if (root == NULL) {
+        return;
+    }
+ 
+    if (root->data > number) removeNode(root->left, number, root);
+    else if (root->data < number) removeNode(root->right, number, root);
+    else 
+    {
+        if (root->left && root->right) 
+        {
+        	BinarySearchTree* localMax = findMaxNode(root->left);
+        	root->data = localMax->data;
+            removeNode(root->left, localMax->data, root);
+            return;
+        } 
+        else if (root->left) 
+        {
+            BinarySearchTree* localMax = findMaxNode(root->left);
+            root->data = localMax->data;
+            removeNode(root->left, localMax->data, root);
+        } 
+        else if (root->right) 
+        {
+            if (root->left == parent) parent->left = root->right;
+            else parent->right = root->right;
+            delete root;
+            root = NULL;
+        } 
+        else 
+        {
+            if (parent->left == root) parent->left = NULL;
+            else parent->right = NULL;
+            delete root;
+            root = NULL;
+        }
+    }
+}
+ 
+void FreeTree(BinarySearchTree *&root)
+{
+	if (root != NULL)
+	{
+		FreeTree(root->left);
+		FreeTree(root->right);
+		delete root;
+		root = NULL;
+	}
+	
 	return;
 }
  
@@ -93,9 +163,9 @@ int main(void)
 	cin >> temp;
 	try
 	{
-		if( temp < 0 ) throw 1;
+		if(temp < 0) throw 1;
 	}
-	catch( int test )
+	catch(int test)
 	{
 		cout << endl << "[-] Exception " << test << ": The number of nodes can't be negative!!!" << endl;
 		return 0;
@@ -110,9 +180,9 @@ int main(void)
 		cin >> temp;
 		try
 		{
-			if( temp < 0 ) throw 2;
+			if(temp < 0) throw 2;
 		}
-		catch( int test )
+		catch(int test)
 		{
 			cout << endl << "[-] Exception " << test << ": The node of tree can't be negative!!!" << endl;
 			return 0;
@@ -130,6 +200,10 @@ int main(void)
 	ptr->print(root);
 	ptr->Search(root);
 	if( n == 0 ) cout << endl << "[-] The number " << number << " was not found!:(";
+	
+	ptr->Deletion(root);
+	cout << endl << "The result of deletion: " << endl;
+	ptr->print(root);
 
 	ptr->FreeTree(root);
  	delete [] node;
