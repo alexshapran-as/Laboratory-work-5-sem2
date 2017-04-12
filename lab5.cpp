@@ -13,7 +13,6 @@ class BinarySearchTree
 {
 private:
 	Type data;
-	Type max;
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
 	BinarySearchTree *parent; 
@@ -96,7 +95,8 @@ BinarySearchTree* findMaxNode(BinarySearchTree *root)
     return root;
 }
 
-void removeNode(BinarySearchTree *root, int number, BinarySearchTree *parent) {
+void removeNode(BinarySearchTree *root, int number, BinarySearchTree *parent) 
+{
     if (root == NULL) {
         return;
     }
