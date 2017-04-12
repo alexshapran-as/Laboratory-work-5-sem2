@@ -13,7 +13,6 @@ class BinarySearchTree
 {
 private:
 	Type data;
-	Type max;
 	BinarySearchTree *left; 
 	BinarySearchTree *right; 
 	BinarySearchTree *parent; 
@@ -54,6 +53,7 @@ void Search(BinarySearchTree *root)
 	
 	Search(root->left);
 	Search(root->right);
+
 }
 
 void print(BinarySearchTree *root)
@@ -180,9 +180,9 @@ int main(void)
 		cin >> temp;
 		try
 		{
-			if(temp < 0) throw 2;
+			if( temp < 0 ) throw 2;
 		}
-		catch(int test)
+		catch( int test )
 		{
 			cout << endl << "[-] Exception " << test << ": The node of tree can't be negative!!!" << endl;
 			return 0;
@@ -200,7 +200,7 @@ int main(void)
 	ptr->print(root);
 	ptr->Search(root);
 	if( n == 0 ) cout << endl << "[-] The number " << number << " was not found!:(";
-	
+
 	ptr->Deletion(root);
 	cout << endl << "The result of deletion: " << endl;
 	ptr->print(root);
@@ -211,3 +211,4 @@ int main(void)
 	_getch();
 	return 0;
 }
+
