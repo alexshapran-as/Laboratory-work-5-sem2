@@ -16,6 +16,11 @@ branches:
   only:
   - master
   - stable
+  # blocklist
+branches:
+  except:
+  - legacy
+  - experimental
 script:
 - mkdir build
 - cd build
