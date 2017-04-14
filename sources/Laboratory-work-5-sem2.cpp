@@ -33,7 +33,7 @@ int BinarySearchTree::Search(int check2, BinarySearchTree *root)
 	return root->data;
 
 }
-int Deletion(int check3, BinarySearchTree *root)
+int  BinarySearchTree::Deletion(int check3, BinarySearchTree *root)
 {
 	if (!root) return check3;
 	
@@ -47,7 +47,7 @@ int Deletion(int check3, BinarySearchTree *root)
 
 	
 }
-int FreeTree(int check4, BinarySearchTree *&root)
+int  BinarySearchTree::FreeTree(int check4, BinarySearchTree *&root)
 {
 	if (root != NULL)
 	{
