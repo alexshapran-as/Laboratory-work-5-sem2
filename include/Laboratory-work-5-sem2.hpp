@@ -8,8 +8,8 @@ class BinarySearchTree
 
 public: 
 	BinarySearchTree *parent; 
-	Type data;
-	int Add(Type new_data, BinarySearchTree *&root);
+	unsigned int data;
+	int Add(unsigned int new_data, BinarySearchTree *&root);
 	int print(int check1, BinarySearchTree *root);
 	int Search(int check2, BinarySearchTree *root);
 	int Deletion(int check3, BinarySearchTree *root);
