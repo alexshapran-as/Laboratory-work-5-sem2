@@ -17,7 +17,7 @@ public:
 };
 
 template <typename Type> 
-int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<unsigned int> *&root)		
+int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<Type> *&root)		
  {		
  	if (!root)		
  	{		
