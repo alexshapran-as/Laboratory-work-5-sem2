@@ -1,6 +1,6 @@
 #include "Laboratory-work-5-sem2.hpp"
 
-int BinarySearchTree<unsigned int>::Add(unsigned int new_data, BinarySearchTree<unsigned int> *&root)
+int BinarySearchTree template<unsigned int>::Add(unsigned int new_data, BinarySearchTree<unsigned int> *&root)
 {
 	if (!root)
 	{
