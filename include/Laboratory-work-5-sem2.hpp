@@ -9,15 +9,7 @@ class BinarySearchTree
 public: 
 	BinarySearchTree *parent; 
 	Type data;
-	int Add(unsigned int new_data, BinarySearchTree *&root);
-	int print(int check1, BinarySearchTree *root);
-	int Search(int check2, BinarySearchTree *root);
-	int Deletion(int check3, BinarySearchTree *root);
-	int FreeTree(int check4, BinarySearchTree *&root);
-};
-
-template <typename Type>
-int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<Type> *&root)		
+int Add(Type new_data, BinarySearchTree *&root)		
  {		
  	if (!root)		
  	{		
@@ -30,16 +22,16 @@ int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<Type> *&root)
  	else if (root->data < new_data) Add(new_data, root); 		
  	else return root->data;		
  }		
-template <typename Type>
-int BinarySearchTree<Type>::print(int check1, BinarySearchTree *root)		
+
+int print(int check1, BinarySearchTree *root)		
  {		
  	if (!root) return check1; 		
  	if (root->data == 10 ) check1 = 12;		
  			
  	return check1;		
  }
-template <typename Type> 
-int BinarySearchTree<Type>::Search(int check2, BinarySearchTree *root)		
+
+int Search(int check2, BinarySearchTree *root)		
  {		
  	if (!root) return check2;		
  		
@@ -51,8 +43,8 @@ int BinarySearchTree<Type>::Search(int check2, BinarySearchTree *root)
  	return root->data;		
  		
  }
-template <typename Type>
-int BinarySearchTree<Type>::Deletion(int check3, BinarySearchTree *root)		
+
+int Deletion(int check3, BinarySearchTree *root)		
  {		
  	if (!root) return check3;		
  			
@@ -66,8 +58,8 @@ int BinarySearchTree<Type>::Deletion(int check3, BinarySearchTree *root)
  		
  			
  }		
-template <typename Type> 
-int BinarySearchTree<Type>::FreeTree(int check4, BinarySearchTree *&root)		
+ 
+int FreeTree(int check4, BinarySearchTree *&root)		
  {		
  	if (root != NULL)		
  	{		
@@ -77,3 +69,5 @@ int BinarySearchTree<Type>::FreeTree(int check4, BinarySearchTree *&root)
 			
 	return check4;		
 }
+
+};
