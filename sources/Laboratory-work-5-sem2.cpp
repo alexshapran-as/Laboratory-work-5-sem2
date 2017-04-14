@@ -1,6 +1,6 @@
 #include "Laboratory-work-5-sem2.hpp"
 
-template <class Type> int BinarySearchTree<int>::Add(Type new_data, BinarySearchTree<int> *&root)
+ int Add(unsigned int new_data, BinarySearchTree *&root)
 {
 	if (!root)
 	{
@@ -14,14 +14,14 @@ template <class Type> int BinarySearchTree<int>::Add(Type new_data, BinarySearch
 	else return root->data;
 }
 
-int BinarySearchTree<unsigned int>::print(int check1, BinarySearchTree *root)
+int print(int check1, BinarySearchTree *root)
 {
 	if (!root) return check1; 
 	if (root->data == 10 ) check1 = 12;
 	
 	return check1;
 }
-int BinarySearchTree<unsigned int>::Search(int check2, BinarySearchTree *root)
+int Search(int check2, BinarySearchTree *root)
 {
 	if (!root) return check2;
 
@@ -33,7 +33,7 @@ int BinarySearchTree<unsigned int>::Search(int check2, BinarySearchTree *root)
 	return root->data;
 
 }
-int  BinarySearchTree<unsigned int>::Deletion(int check3, BinarySearchTree *root)
+int  Deletion(int check3, BinarySearchTree *root)
 {
 	if (!root) return check3;
 	
@@ -47,7 +47,7 @@ int  BinarySearchTree<unsigned int>::Deletion(int check3, BinarySearchTree *root
 
 	
 }
-int  BinarySearchTree<unsigned int>::FreeTree(int check4, BinarySearchTree *&root)
+int FreeTree(int check4, BinarySearchTree *&root)
 {
 	if (root != NULL)
 	{
