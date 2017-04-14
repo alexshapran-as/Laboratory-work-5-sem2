@@ -2,7 +2,7 @@
 #include <stdlib.h>
 using namespace std;
  
-template <class Type>
+template <typename Type>
 class BinarySearchTree
 {
 
@@ -16,7 +16,7 @@ public:
 	int FreeTree(int check4, BinarySearchTree *&root);
 };
 
-template <class Type> 
+template <typename Type>
 int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<Type> *&root)		
  {		
  	if (!root)		
@@ -30,7 +30,7 @@ int BinarySearchTree<Type>::Add(Type new_data, BinarySearchTree<Type> *&root)
  	else if (root->data < new_data) Add(new_data, root); 		
  	else return root->data;		
  }		
-template <class Type> 
+template <typename Type>
 int BinarySearchTree<Type>::print(int check1, BinarySearchTree *root)		
  {		
  	if (!root) return check1; 		
@@ -38,7 +38,7 @@ int BinarySearchTree<Type>::print(int check1, BinarySearchTree *root)
  			
  	return check1;		
  }
-template <class Type> 
+template <typename Type> 
 int BinarySearchTree<Type>::Search(int check2, BinarySearchTree *root)		
  {		
  	if (!root) return check2;		
@@ -51,7 +51,7 @@ int BinarySearchTree<Type>::Search(int check2, BinarySearchTree *root)
  	return root->data;		
  		
  }
-template <class Type> 
+template <typename Type>
 int BinarySearchTree<Type>::Deletion(int check3, BinarySearchTree *root)		
  {		
  	if (!root) return check3;		
@@ -66,7 +66,7 @@ int BinarySearchTree<Type>::Deletion(int check3, BinarySearchTree *root)
  		
  			
  }		
-template <class Type> 
+template <typename Type> 
 int BinarySearchTree<Type>::FreeTree(int check4, BinarySearchTree *&root)		
  {		
  	if (root != NULL)		
