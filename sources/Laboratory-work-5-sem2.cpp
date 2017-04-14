@@ -1,6 +1,6 @@
 #include "Laboratory-work-5-sem2.hpp"
 
-int BinarySearchTree::Add(unsigned int new_data, BinarySearchTree<unsigned int> *&root)
+int BinarySearchTree<unsigned int>::Add(unsigned int new_data, BinarySearchTree<unsigned int> *&root)
 {
 	if (!root)
 	{
@@ -14,14 +14,14 @@ int BinarySearchTree::Add(unsigned int new_data, BinarySearchTree<unsigned int> 
 	else return root->data;
 }
 
-int BinarySearchTree::print(int check1, BinarySearchTree *root)
+int BinarySearchTree<unsigned int>::print(int check1, BinarySearchTree *root)
 {
 	if (!root) return check1; 
 	if (root->data == 10 ) check1 = 12;
 	
 	return check1;
 }
-int BinarySearchTree::Search(int check2, BinarySearchTree *root)
+int BinarySearchTree<unsigned int>::Search(int check2, BinarySearchTree *root)
 {
 	if (!root) return check2;
 
@@ -33,7 +33,7 @@ int BinarySearchTree::Search(int check2, BinarySearchTree *root)
 	return root->data;
 
 }
-int  BinarySearchTree::Deletion(int check3, BinarySearchTree *root)
+int  BinarySearchTree<unsigned int>::Deletion(int check3, BinarySearchTree *root)
 {
 	if (!root) return check3;
 	
@@ -47,7 +47,7 @@ int  BinarySearchTree::Deletion(int check3, BinarySearchTree *root)
 
 	
 }
-int  BinarySearchTree::FreeTree(int check4, BinarySearchTree *&root)
+int  BinarySearchTree<unsigned int>::FreeTree(int check4, BinarySearchTree *&root)
 {
 	if (root != NULL)
 	{
