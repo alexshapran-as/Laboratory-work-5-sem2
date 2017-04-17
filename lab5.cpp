@@ -56,6 +56,19 @@ void Search(BinarySearchTree *root)
 
 }
 
+void print_line(BinarySearchTree *root)
+{
+	if (!root) return; 
+	
+	print_line(root->right);
+ 
+	cout << root->data << " ";
+
+	print_line(root->left);
+
+	return;
+}
+
 void print(BinarySearchTree *root)
 {
 	if (!root) return; 
@@ -196,6 +209,10 @@ int main(void)
 	{
 		ptr->Add(node[i], root);
 	}
+
+	cout << endl << size << " ";
+	ptr->print_line(root);
+	cout << endl << endl << "Binary Search Tree:" << endl;
  
 	ptr->print(root);
 	ptr->Search(root);
