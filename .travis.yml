@@ -16,7 +16,7 @@ branches:
   only:
   - master
   - stable
-  # blocklist
+  # blacklist
 branches:
   except:
   - legacy
