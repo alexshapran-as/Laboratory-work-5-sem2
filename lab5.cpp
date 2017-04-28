@@ -76,7 +76,7 @@ void print(BinarySearchTree *root)
 	tabs++; 
 	print(root->right);
  
-	for (int i = 0; i < tabs; i++) cout << "- "; 
+	for (unsigned int i = 0; i < tabs; ++i) cout << "- "; 
 	cout << root->data << endl;
 
 	print(root->left);
