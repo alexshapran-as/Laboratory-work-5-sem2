@@ -25,13 +25,13 @@ void Add(Type new_data, BinarySearchTree *&root)
 		root = new BinarySearchTree;
 		root->data = new_data;
 		root->parent = root;
-		root->left = 0;
-		root->right = 0;
+		root->left = nullptr; // 0 -> nullptr (nullptr is preferable)
+		root->right = nullptr; // 0 -> nullptr (nullptr is preferable)
 		return;
 	}
 	else if (root->data > new_data) Add(new_data, root->left);
 	else if (root->data < new_data) Add(new_data, root->right); 
-	else return;
+	//else return; // redundant return operator
 }
 
 void Search(BinarySearchTree *root)
@@ -66,7 +66,7 @@ void print_line(BinarySearchTree *root)
 
 	print_line(root->left);
 
-	return;
+	//return; // redundant return operator
 }
 
 void print(BinarySearchTree *root)
@@ -82,7 +82,7 @@ void print(BinarySearchTree *root)
 	print(root->left);
  	tabs--;
 
-	return;
+	//return; // redundant return operator
 }
 
 void Deletion(BinarySearchTree *root)
@@ -104,13 +104,13 @@ void Deletion(BinarySearchTree *root)
 
 BinarySearchTree* findMaxNode(BinarySearchTree *root) 
 {
-    if (root == NULL) exit(4);
+    if (root == nullptr) exit(4); // NULL -> nullptr (nullptr is preferable)
     if (root->right) return findMaxNode(root->right);
     return root;
 }
 
 void removeNode(BinarySearchTree *root, int number, BinarySearchTree *parent) {
-    if (root == NULL) {
+    if (root == nullptr) {  // NULL -> nullptr (nullptr is preferable)
         return;
     }
  
@@ -136,39 +136,39 @@ void removeNode(BinarySearchTree *root, int number, BinarySearchTree *parent) {
             if (root->left == parent) parent->left = root->right;
             else parent->right = root->right;
             delete root;
-            root = NULL;
+            root = nullptr;  // NULL -> nullptr (nullptr is preferable)
         } 
         else 
         {
-            if (parent->left == root) parent->left = NULL;
-            else parent->right = NULL;
+            if (parent->left == root) parent->left = nullptr; // NULL -> nullptr (nullptr is preferable)
+            else parent->right = nullptr; // NULL -> nullptr (nullptr is preferable)
             delete root;
-            root = NULL;
+            root = nullptr; // NULL -> nullptr (nullptr is preferable)
         }
     }
 }
  
 void FreeTree(BinarySearchTree *&root)
 {
-	if (root != NULL)
+	if (root != nullptr) // NULL -> nullptr (nullptr is preferable)
 	{
 		FreeTree(root->left);
 		FreeTree(root->right);
 		delete root;
-		root = NULL;
+		root = nullptr;  // NULL -> nullptr (nullptr is preferable)
 	}
 	
-	return;
+	//return; // redundant return operator
 }
  
 };
 
 int main(void)
 {
-	BinarySearchTree<unsigned int> *root = 0;
-	BinarySearchTree<unsigned int> *ptr;
+	BinarySearchTree<unsigned int> *root = nullptr; // 0 -> nullptr (nullptr is preferable)
+	BinarySearchTree<unsigned int> *ptr = nullptr; // initialize variable *ptr
 
-	unsigned int* node;
+	unsigned int* node = nullptr;// initialize variable *node
 	unsigned int size = 0;
 	auto temp = 0;
 
